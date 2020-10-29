@@ -15,6 +15,8 @@
 		169AA879254AC469001F043F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 169AA877254AC469001F043F /* LaunchScreen.storyboard */; };
 		169AA884254AC469001F043F /* Github_StargazersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169AA883254AC469001F043F /* Github_StargazersTests.swift */; };
 		169AA88F254AC46A001F043F /* Github_StargazersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169AA88E254AC46A001F043F /* Github_StargazersUITests.swift */; };
+		16A6ED58254AEB6700E54F1A /* StarredUsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A6ED57254AEB6700E54F1A /* StarredUsersListViewController.swift */; };
+		16A6ED5F254AF3F000E54F1A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A6ED5E254AF3F000E54F1A /* User.swift */; };
 		68E7F370B3E258275105D969 /* Pods_Github_StargazersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7487A7E49294BF819898E04 /* Pods_Github_StargazersTests.framework */; };
 		715430D409DD91D98DDC3E66 /* Pods_Github_Stargazers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F671D64CF5CC4D0D22467E9E /* Pods_Github_Stargazers.framework */; };
 		B281028B333815D1564D7D92 /* Pods_Github_Stargazers_Github_StargazersUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7697F2073000EAC3F632AE5 /* Pods_Github_Stargazers_Github_StargazersUITests.framework */; };
@@ -52,6 +54,8 @@
 		169AA88A254AC46A001F043F /* Github StargazersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Github StargazersUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		169AA88E254AC46A001F043F /* Github_StargazersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Github_StargazersUITests.swift; sourceTree = "<group>"; };
 		169AA890254AC46A001F043F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16A6ED57254AEB6700E54F1A /* StarredUsersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarredUsersListViewController.swift; sourceTree = "<group>"; };
+		16A6ED5E254AF3F000E54F1A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4665858CEF17751C8746E073 /* Pods-Github Stargazers-Github StargazersUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github Stargazers-Github StargazersUITests.release.xcconfig"; path = "Target Support Files/Pods-Github Stargazers-Github StargazersUITests/Pods-Github Stargazers-Github StargazersUITests.release.xcconfig"; sourceTree = "<group>"; };
 		77085C0031E13E82A9800061 /* Pods-Github StargazersTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github StargazersTests.debug.xcconfig"; path = "Target Support Files/Pods-Github StargazersTests/Pods-Github StargazersTests.debug.xcconfig"; sourceTree = "<group>"; };
 		77FA76D9C76FF22188086E5A /* Pods-Github Stargazers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github Stargazers.debug.xcconfig"; path = "Target Support Files/Pods-Github Stargazers/Pods-Github Stargazers.debug.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +120,7 @@
 		169AA86B254AC468001F043F /* Github Stargazers */ = {
 			isa = PBXGroup;
 			children = (
+				16A6ED5D254AF3DC00E54F1A /* Model */,
 				16AB1F52254AD20A00CAA7A9 /* Controller */,
 				16AB1F51254AD1F000CAA7A9 /* View */,
 				169AA875254AC469001F043F /* Assets.xcassets */,
@@ -142,6 +147,14 @@
 			path = "Github StargazersUITests";
 			sourceTree = "<group>";
 		};
+		16A6ED5D254AF3DC00E54F1A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				16A6ED5E254AF3F000E54F1A /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		16AB1F51254AD1F000CAA7A9 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +170,7 @@
 				169AA86C254AC468001F043F /* AppDelegate.swift */,
 				169AA86E254AC468001F043F /* SceneDelegate.swift */,
 				169AA870254AC468001F043F /* SearchStargazersViewController.swift */,
+				16A6ED57254AEB6700E54F1A /* StarredUsersListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -423,7 +437,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				169AA871254AC468001F043F /* SearchStargazersViewController.swift in Sources */,
+				16A6ED58254AEB6700E54F1A /* StarredUsersListViewController.swift in Sources */,
 				169AA86D254AC468001F043F /* AppDelegate.swift in Sources */,
+				16A6ED5F254AF3F000E54F1A /* User.swift in Sources */,
 				169AA86F254AC468001F043F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
