@@ -91,7 +91,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="92" id="kxs-3C-FCo">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" rowHeight="92" id="kxs-3C-FCo" customClass="UserCell" customModule="Github_Stargazers" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="92"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kxs-3C-FCo" id="jXH-xJ-UVy">
@@ -122,6 +122,11 @@
                                         <constraint firstAttribute="bottom" secondItem="0QO-4H-iZb" secondAttribute="bottom" id="wcT-0G-tJN"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration" identifier="UserCell"/>
+                                <connections>
+                                    <outlet property="avatarImageView" destination="0QO-4H-iZb" id="hyw-fy-d4M"/>
+                                    <outlet property="usernameLabel" destination="dU8-MX-NUl" id="qCO-Vh-WQq"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

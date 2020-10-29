@@ -7,42 +7,45 @@
 
 import UIKit
 
+// MARK: - Custom Cell
+
+class UserCell: UITableViewCell {
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var avatarImageView: UIImageView!
+    
+}
+
 class StarredUsersListViewController: UITableViewController {
     
     var userList = [User]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(userList)
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.tableView.separatorStyle = .none
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.userList.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserCell
 
-        // Configure the cell...
+        cell.usernameLabel.text = self.userList[indexPath.row].username
+        cell.avatarImageView.imageFromServerURL(urlString: self.userList[indexPath.row].imageLink)
+        cell.selectionStyle = .none // rows not selectable
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -90,3 +93,22 @@ class StarredUsersListViewController: UITableViewController {
     */
 
 }
+
+
+extension UIImageView {
+
+ public func imageFromServerURL(urlString: String) {
+
+        URLSession.shared.dataTask(with: NSURL(string: urlString)! as URL, completionHandler: { (data, response, error) -> Void in
+
+            if error != nil {
+                print(error ?? "No Error")
+                return
+            }
+            DispatchQueue.main.async(execute: { () -> Void in
+                let image = UIImage(data: data!)
+                self.image = image
+            })
+
+        }).resume()
+    }}
