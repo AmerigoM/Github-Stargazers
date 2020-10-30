@@ -22,6 +22,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Owner" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gae-vn-MHl" userLabel="Owner">
                                 <rect key="frame" x="16" y="133" width="382" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration" identifier="ownerTextField"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="3hW-fk-xiq"/>
                                 </constraints>
@@ -31,6 +32,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repository" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ofX-0e-1jD" userLabel="Repository">
                                 <rect key="frame" x="16" y="171" width="382" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration" identifier="repositoryTextField"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="2hV-dN-bfh"/>
                                 </constraints>
@@ -40,6 +42,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5y4-6a-Wub">
                                 <rect key="frame" x="16" y="209" width="382" height="30"/>
                                 <color key="backgroundColor" red="0.1764705882352941" green="0.38039215686274508" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="SearchButton"/>
                                 <state key="normal" title="Search">
                                     <color key="titleColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -107,6 +110,7 @@
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dU8-MX-NUl" userLabel="username">
                                             <rect key="frame" x="100" y="0.0" width="314" height="92"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="UserCell"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>

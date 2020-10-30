@@ -8,7 +8,6 @@ target 'Github Stargazers' do
   # Pods for Github Stargazers
   pod 'SwiftyJSON'
   pod 'Alamofire'
-  pod 'SVProgressHUD'
 
   target 'Github StargazersTests' do
     inherit! :search_paths

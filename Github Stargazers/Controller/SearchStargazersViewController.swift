@@ -24,6 +24,12 @@ class SearchStargazersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        ownerLabel.text = ""
+        repoLabel.text = ""
+    }
 
     @IBAction func search(_ sender: UIButton) {
         if let owner = ownerLabel.text, let repo = repoLabel.text, !owner.isEmpty, !repo.isEmpty {
@@ -43,16 +49,22 @@ class SearchStargazersViewController: UIViewController {
         Alamofire.request(trueUrl, method: .get).responseJSON { response in
             if response.result.isSuccess {
                 let usersJSON: JSON = JSON(response.result.value!)
-                
-                let jsonArray = usersJSON.array!
-                for item in jsonArray {
-                    let user = User()
-                    user.username = item["login"].stringValue
-                    user.imageLink = item["avatar_url"].stringValue
-                    self.userList.append(user)
+                if usersJSON.type == .dictionary {
+                    self.displayAlert(title: "Warning", message: "Repository or user do not exist.")
+                } else if usersJSON.type == .array {
+                    let jsonArray = usersJSON.array!
+                    for item in jsonArray {
+                        let user = User()
+                        user.username = item["login"].stringValue
+                        user.imageLink = item["avatar_url"].stringValue
+                        self.userList.append(user)
+                    }
+                    
+                    self.performSegue(withIdentifier: "segueToList", sender: self)
+                } else {
+                    self.displayAlert(title: "Request failure", message: "Please contact the app support.")
                 }
                 
-                self.performSegue(withIdentifier: "segueToList", sender: self)
             } else {
                 self.displayAlert(title: "Request failure", message: "Please contact the app support.")
             }
