@@ -46,7 +46,7 @@ class StarredUsersListViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserCell
 
         cell.usernameLabel.text = self.userList[indexPath.row].username
-        cell.avatarImageView.imageFromServerURL(urlString: self.userList[indexPath.row].imageLink, placeholderImage: UIImage(named: "launchIcon")!)
+        cell.avatarImageView.imageFromServerURL(urlString: self.userList[indexPath.row].imageLink, placeholderImage: UIImage(named: "PlaceholderUser")!)
         cell.selectionStyle = .none // rows not selectable
 
         return cell
