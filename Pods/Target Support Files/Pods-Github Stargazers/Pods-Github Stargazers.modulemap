@@ -1,0 +1,6 @@
+framework module Pods_Github_Stargazers {
+  umbrella header "Pods-Github Stargazers-umbrella.h"
+
+  export *
+  module * { export * }
+}
