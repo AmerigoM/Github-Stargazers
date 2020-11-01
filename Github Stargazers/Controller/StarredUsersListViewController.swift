@@ -21,8 +21,7 @@ class StarredUsersListViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.accessibilityIdentifier = "resultView"
-
+        overrideUserInterfaceStyle = .light
         self.tableView.separatorStyle = .none
     }
 
@@ -47,7 +46,7 @@ class StarredUsersListViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserCell
 
         cell.usernameLabel.text = self.userList[indexPath.row].username
-        cell.avatarImageView.imageFromServerURL(urlString: self.userList[indexPath.row].imageLink)
+        cell.avatarImageView.imageFromServerURL(urlString: self.userList[indexPath.row].imageLink, placeholderImage: UIImage(named: "launchIcon")!)
         cell.selectionStyle = .none // rows not selectable
 
         return cell
@@ -59,7 +58,11 @@ class StarredUsersListViewController: UITableViewController {
 
 extension UIImageView {
 
- public func imageFromServerURL(urlString: String) {
+    public func imageFromServerURL(urlString: String, placeholderImage: UIImage) {
+        
+        if self.image == nil {
+              self.image = placeholderImage
+        }
 
         URLSession.shared.dataTask(with: NSURL(string: urlString)! as URL, completionHandler: { (data, response, error) -> Void in
 
@@ -67,6 +70,7 @@ extension UIImageView {
                 print(error ?? "No Error")
                 return
             }
+            
             DispatchQueue.main.async(execute: { () -> Void in
                 let image = UIImage(data: data!)
                 self.image = image

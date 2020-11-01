@@ -22,13 +22,22 @@ class Github_StargazersUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+    func testGoToSecondScreen() throws {
         let app = XCUIApplication()
         app.launch()
-
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        let ownerTextField = app.textFields["ownerTextField"]
+        ownerTextField.tap()
+        ownerTextField.typeText("AmerigoM")
+        
+        let repositoryTextField = app.textFields["repositoryTextField"]
+        repositoryTextField.tap()
+        repositoryTextField.typeText("Clima")
+        
+        app.buttons["SearchButton"].tap()
+        sleep(5)
+        
+        XCTAssertFalse(app.buttons["SearchButton"].exists)
     }
 
     func testLaunchPerformance() throws {
